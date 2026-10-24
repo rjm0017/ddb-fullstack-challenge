@@ -29,6 +29,7 @@ let characterData = {
 /**
  * Utility for initializing necessary information to modify character HP
  * @param {string} fileIn - source of incoming character information (briv.json)
+ * @returns {string} name of character from the character sheet
  */
 export default async function initCharacter(fileIn) {
   const character = JSON.parse(await fs.readFile(fileIn, "utf8"));
@@ -42,16 +43,10 @@ export default async function initCharacter(fileIn) {
     `/${characterData.name.toLowerCase()}Data.json`,
   );
 
-  // TODO: read characterDataPath file to check if it exists
-  // terminate init if it exists
-  // I basically dont want the file overwritten every time the
-  // server restarts
-
   characterData.level = character.level;
   characterData.class = character.classes[0].name;
   characterData.maxHitPoints = character.hitPoints;
   characterData.currentHitPoints = character.hitPoints;
-  // temp HP is not set on base character sheet, init to 0
 
   // loop through defenses to write to resistances and immunitites
   let immunities = [];
@@ -68,6 +63,7 @@ export default async function initCharacter(fileIn) {
   characterData.immunities = immunities;
   characterData.resistances = resistances;
 
+  // populate immutable stats
   characterData.stats = {
     strength: character.stats.strength,
     dexterity: character.stats.dexterity,

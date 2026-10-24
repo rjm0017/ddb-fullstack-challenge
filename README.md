@@ -1,14 +1,20 @@
+## D&D Character HP Mananger
+
+This application includes a simple API for managing a Dungeons and Dragons character's hitpoints and temporary hitpoints.
+
+The application includes an ExpressJS backend for intitializing and storing character data, and an API for healing, adding temporary hitpoints, and doing damage to your D&D Character
+
+The application also includes a ReactJS frontend to both display your character's current health status, as well as a UI for modifying your character's HP by dealing damage to them, healing them, or providing them with temporary HP.
+
 ### Setup Backend
 
-- From backend directory, run `npm install`, then `node start`
-- Default port is 8080, can be changed with an .env file with a PORT variable if needed
-  - Be sure to create the .env in the backend directory if doing so
-    > Do not set this port to 5173, or the frontend application will not run properly
+- From `ddb-backend-express` directory, run `npm install`, then `npm start`
+- The server will be running at `localhost:8080`
+  > It is important to insure the server port is not changed! The frontend is assuming that the API will be located at port 8080
 
 ### Setup Frontend
 
-- Run `npm install` from the `frontend` directory
-- Start the app by running `npm start` from the `frontend` directory
+- From `ddb-frontend-react` directory, run `npm install`, then `npm start`
 - Access the application at `localhost:5173` from your browser
-  > Be sure that the Express API is running locally before running the frontend application, and ensure it is not running on port 5173
-  > Also ensure that the frontend is running on the default port 5173, otherwise requests from the frontend will likely encounter CORS errors, and not function as intended
+  > Be sure that the Express API is running locally before running the frontend application
+  > Ensure that the frontend is running on the default port 5173, otherwise requests from the frontend will encounter CORS errors and not function as intended

@@ -3,10 +3,11 @@ import api from "./routes/api.js";
 import cors from "cors";
 const app = express();
 
-//Body Parser Middleware
+// Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// CORS middleware to allow React App to access API
 app.use(
   cors({
     origin: "http://localhost:5173",

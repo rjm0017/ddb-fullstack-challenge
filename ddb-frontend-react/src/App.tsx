@@ -162,7 +162,7 @@ export default function App() {
             className="progress is-info"
             aria-label="Temporary Hitpoints Bar"
             value={charData.tempHp}
-            max="10"
+            max="15"
           ></progress>
         </div>
       </div>

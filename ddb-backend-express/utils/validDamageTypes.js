@@ -1,8 +1,7 @@
-/**
+/*
  *  This variable was needed across the application for validation, so it has been
  *  moved to its own utility for easy access
  */
-
 const validDamageTypes = [
   "bludgeoning",
   "piercing",

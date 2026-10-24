@@ -34,18 +34,20 @@ router.post("/damage", async (req, res) => {
 
   let damage = req.body.damage;
   let damageType = req.body.type;
+  let calcResult;
 
-  let calcResult = hpCalc.damageCalculation(
-    storedCharData.currentHitPoints,
-    storedCharData.tempHitPoints,
-    storedCharData.resistances,
-    storedCharData.immunities,
-    damage,
-    damageType,
-  );
-
-  if (calcResult === -1) {
-    return res.status(400).send({ message: "Damage Type Invalid" });
+  try {
+    calcResult = hpCalc.damageCalculation(
+      storedCharData.currentHitPoints,
+      storedCharData.tempHitPoints,
+      storedCharData.resistances,
+      storedCharData.immunities,
+      damage,
+      damageType,
+    );
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+    return;
   }
 
   storedCharData.currentHitPoints = calcResult.remainingHp;
