@@ -20,6 +20,7 @@ npm start
 ```
 
 - The server will be running at `localhost:8080`
+
   > It is important to insure the server port is not changed! The frontend is assuming that the API will be located at port 8080
 
 ### Frontend
