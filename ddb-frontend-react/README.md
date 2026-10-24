@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+## Running tests
+
+Run the unit tests once with `npm test`, or use `npm run test:watch` while developing.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

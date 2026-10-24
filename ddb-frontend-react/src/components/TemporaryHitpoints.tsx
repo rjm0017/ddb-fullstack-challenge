@@ -30,6 +30,7 @@ export default function TemporaryHitpoints({
       <div className={styles.tempHp}>
         <div>
           <input
+            aria-label="Temporary Hitpoints Amount"
             className={styles.tempHpInput}
             type="number"
             min="0"
@@ -38,7 +39,12 @@ export default function TemporaryHitpoints({
           ></input>
         </div>
         <div>
-          <button>Apply Temp HP</button>
+          <button
+            aria-label="Apply Temporary Hitpoints"
+            className={styles.tempHpButton}
+          >
+            Apply Temp HP
+          </button>
         </div>
       </div>
     </form>

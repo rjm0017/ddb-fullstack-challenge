@@ -48,6 +48,7 @@ export default function Damage({ onDealDamage }: DamageProps) {
       <div className={styles.damage}>
         <div>
           <input
+            aria-label="Damage Amount"
             className={styles.damageInput}
             type="number"
             min="0"
@@ -58,6 +59,8 @@ export default function Damage({ onDealDamage }: DamageProps) {
 
         <div>
           <select
+            aria-label="Damage Type Select"
+            className={styles.damageSelect}
             value={damageType}
             onChange={(e) => setDamageType(e.target.value)}
           >
@@ -70,7 +73,9 @@ export default function Damage({ onDealDamage }: DamageProps) {
         </div>
 
         <div>
-          <button>Take Damage</button>
+          <button aria-label="Take Damage" className={styles.damageButton}>
+            Take Damage
+          </button>
         </div>
       </div>
     </form>

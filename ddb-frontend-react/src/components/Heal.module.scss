@@ -1,9 +1,27 @@
+$common-color: #48c78e;
+$common-br: 5px;
+$common-border: 1px solid black;
+$common-padding: 5px 5px;
+$common-shadow: 2px 2px 3px #444;
+
 .heal {
   display: flex;
-  // border: 1px dotted yellow;
   justify-content: center;
 }
 
 .healInput {
   width: 40px;
+  border: $common-border;
+  border-radius: $common-br;
+  background-color: $common-color;
+  padding: $common-padding;
+  box-shadow: $common-shadow;
+}
+
+.healButton {
+  background-color: $common-color;
+  border: $common-border;
+  border-radius: $common-br;
+  padding: $common-padding;
+  box-shadow: $common-shadow;
 }

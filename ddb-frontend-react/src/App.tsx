@@ -101,23 +101,27 @@ export default function App() {
 
   return (
     <>
-      <h1>D&D Character HP Tracker</h1>
+      <div className="headerNav">
+        <h1>D&D Character HP Tracker</h1>
+      </div>
       <div className="container">
-        <div className="characterPaneLeft">
-          <div>
-            <img className="dndClassIcon" src={fighterIcon} />
-            {/* <img className="dndClassIcon" src="./assets/fighter.png" /> */}
-          </div>
-          <div className="characterInfo">
-            <h2>{charStats.name}</h2>
-            <p>
-              Lv {charStats.level} {charStats.class}
-            </p>
-            <p>
-              Hitpoints: {charData.currentHp} / {charStats.maxHP}
-            </p>
-            <p>Temporary HP: {charData.tempHp}</p>
-          </div>
+        <div>
+          <img
+            className="dndClassIcon"
+            alt="D&D Class Icon"
+            aria-label="D&D Class Icon"
+            src={fighterIcon}
+          />
+        </div>
+        <div className="characterInfo">
+          <h2>{charStats.name}</h2>
+          <p>
+            Lv {charStats.level} {charStats.class}
+          </p>
+          <p>
+            HP: {charData.currentHp} / {charStats.maxHP}
+          </p>
+          <p>Temp HP: {charData.tempHp}</p>
         </div>
 
         <div className="characterPaneRight">
@@ -147,21 +151,19 @@ export default function App() {
           <div>Hitpoints:</div>
           <progress
             className="progress is-danger"
+            aria-label="Hitpoints Bar"
             value={charData.currentHp}
             max={charStats.maxHP}
           ></progress>
-          {/* <div>
-            ( {charData.currentHp} / {charStats.maxHP} )
-          </div> */}
         </div>
         <div className="tempHealthBar">
           <div>Temp HP:</div>
           <progress
             className="progress is-info"
+            aria-label="Temporary Hitpoints Bar"
             value={charData.tempHp}
             max="10"
           ></progress>
-          {/* <div>( {charData.tempHp} )</div> */}
         </div>
       </div>
 

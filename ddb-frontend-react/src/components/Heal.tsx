@@ -28,6 +28,7 @@ export default function Heal({ onHeal }: HealProps) {
       <div className={styles.heal}>
         <div>
           <input
+            aria-label="Heal Amount"
             className={styles.healInput}
             type="number"
             min="0"
@@ -36,7 +37,9 @@ export default function Heal({ onHeal }: HealProps) {
           ></input>
         </div>
         <div>
-          <button>Apply Heal</button>
+          <button aria-label="Apply Heal" className={styles.healButton}>
+            Apply Heal
+          </button>
         </div>
       </div>
     </form>

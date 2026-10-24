@@ -1,55 +1,62 @@
+$text-color: #efefef;
+$background-color: #323232;
+$nav-bg-color: #222;
+
 body {
-  // background-color: #d6b780;
-  background-color: #323232;
-  color: #efefef;
+  background-color: $background-color;
+  color: $text-color;
   font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-h1 {
-  text-align: center;
+.headerNav {
+  min-width: 100vw;
+  // margin-bottom: 24px;
+  background-color: $nav-bg-color;
+  border-bottom: 1px solid $text-color;
+  padding: 24px 0;
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
 }
-
 .container {
   text-align: center;
   display: flex;
-  margin: 0;
   justify-content: space-around;
+  flex-wrap: wrap;
 
-  .characterPaneLeft {
-    display: flex;
-    // border: 1px solid red;
-    min-width: 60vw;
-    justify-content: space-around;
+  p {
+    font-weight: 400;
+    font-size: 18px;
+  }
 
-    p {
-      font-weight: 400;
-      font-size: 18px;
-    }
-
-    .dndClassIcon {
-      width: 14rem;
-      height: 11rem;
-      // aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-    .characterInfo {
-      // background-color: tan;
-      // border-radius: 12px;
-      display: inline;
-      h2 {
-        margin-top: 8px;
-      }
+  .dndClassIcon {
+    margin-top: 24px;
+    width: 14rem;
+    height: 11rem;
+    object-fit: cover;
+  }
+  .characterInfo {
+    margin-top: 24px;
+    display: inline;
+    min-width: 125px;
+    h2 {
+      margin-top: 8px;
     }
   }
 
   .characterPaneRight {
-    margin-bottom: 8px;
     background-color: tan;
     color: #111;
     border-radius: 5px;
     display: inline;
-    // border: 1px solid green;
-    min-width: 20vw;
+    width: 150px;
+    margin: 24px 37px 0px;
+    padding-bottom: 8px;
+    box-shadow: 3px 3px 4px #444;
     p {
       margin-top: 8px;
       margin-bottom: 0;
@@ -60,8 +67,6 @@ h1 {
 .hpBars {
   min-width: 95vw;
   margin-top: 8px;
-  // background-color: #444;
-  // border-radius: 12px;
 
   .mainHealthBar {
     display: flex;
@@ -87,11 +92,7 @@ h1 {
 
 .inputInterface {
   margin-top: 1rem;
-  // border: 1px solid blue;
   min-width: 95vw;
-
-  // background-color: #444;
-  // border-radius: 12px;
   
   div {
     margin-right: .5rem;

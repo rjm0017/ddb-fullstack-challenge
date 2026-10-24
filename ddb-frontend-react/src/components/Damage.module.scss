@@ -1,9 +1,35 @@
+$common-color: #ff6685;
+$common-br: 5px;
+$common-border: 1px solid black;
+$common-padding: 5px 5px;
+$common-shadow: 2px 2px 3px #444;
+
 .damage {
   display: flex;
-  // border: 1px dotted purple;
   justify-content: center;
 }
 
 .damageInput {
   width: 40px;
+  background-color: $common-color;
+  border: $common-border;
+  border-radius: $common-br;
+  padding: $common-padding;
+  box-shadow: $common-shadow;
+}
+
+.damageSelect {
+  background-color: $common-color;
+  border: $common-border;
+  border-radius: $common-br;
+  padding: $common-padding;
+  box-shadow: $common-shadow;
+}
+
+.damageButton { 
+  background-color: $common-color;
+  border: $common-border;
+  border-radius: $common-br;
+  padding: $common-padding;
+  box-shadow: $common-shadow;
 }
