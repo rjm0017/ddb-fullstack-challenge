@@ -30,7 +30,7 @@ npm run build
 npm run preview
 ```
 
-- Access the application at `localhost:5173` from your browser
+- Access the application at `localhost:4173` from your browser
 
   > Ensure the Express API is running locally before running the frontend application
 
