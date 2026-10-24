@@ -3,9 +3,12 @@ import Damage from "./components/Damage";
 import Heal from "./components/Heal";
 import TemporaryHitpoints from "./components/TemporaryHitpoints";
 import type { damageValuesObj } from "./utils/customTypes";
+import fighterIcon from "./assets/fighter.png";
+import "./App.scss";
 
 export default function App() {
-  // setCharData will be called whenever any of the damage/heal/temphp calcs are run
+  // setCharData will be called whenever any of the damage/heal/temphp calcs are run,
+  // as well as on app load
   const [charData, setCharData] = useState({
     currentHp: 0,
     tempHp: 0,
@@ -30,13 +33,20 @@ export default function App() {
     const fetchCharacter = async () => {
       const response = await fetch("http://localhost:8080/api/getCharacter");
       const result = await response.json();
-      console.log("character data fetched: ", result);
+
+      // make sure class name is capitalized
+      // leave name capitalization alone for Role Playing purpouses
+      const firstLetter = result.class.charAt(0);
+      const firstLetterCap = firstLetter.toUpperCase();
+      const remainingLetters = result.class.slice(1);
+      const capitalizedClassName =
+        firstLetterCap + remainingLetters.toLowerCase();
 
       // assign character data appropriately here:
       setCharStats({
         name: result.name,
         level: result.level,
-        class: result.class,
+        class: capitalizedClassName,
         maxHP: result.maxHitPoints,
         strength: result.stats.strength,
         dexterity: result.stats.dexterity,
@@ -91,31 +101,73 @@ export default function App() {
 
   return (
     <>
-      <div>
-        <h1>{charStats.name || "Character Name"}</h1>
-        <p>Class: {charStats.class}</p>
-        <p>Level: {charStats.level}</p>
-        <p>
-          HP: {charData.currentHp}/{charStats.maxHP}
-        </p>
-        <p>Temporary HP: {charData.tempHp}</p>
-        <p>Stats:</p>
-        <ul title="Stats">
-          <li>Strength: {charStats.strength}</li>
-          <li>Dexterity: {charStats.dexterity}</li>
-          <li>Constitution: {charStats.constitution}</li>
-          <li>Intelligence: {charStats.intelligence}</li>
-          <li>Wisdom: {charStats.wisdom}</li>
-          <li>Charisma: {charStats.charisma}</li>
-        </ul>
+      <h1>D&D Character HP Tracker</h1>
+      <div className="container">
+        <div className="characterPaneLeft">
+          <div>
+            <img className="dndClassIcon" src={fighterIcon} />
+            {/* <img className="dndClassIcon" src="./assets/fighter.png" /> */}
+          </div>
+          <div className="characterInfo">
+            <h2>{charStats.name}</h2>
+            <p>
+              Lv {charStats.level} {charStats.class}
+            </p>
+            <p>
+              Hitpoints: {charData.currentHp} / {charStats.maxHP}
+            </p>
+            <p>Temporary HP: {charData.tempHp}</p>
+          </div>
+        </div>
+
+        <div className="characterPaneRight">
+          <p>
+            <b>STR:</b> {charStats.strength}
+          </p>
+          <p>
+            <b>DEX:</b> {charStats.dexterity}
+          </p>
+          <p>
+            <b>CON:</b> {charStats.constitution}
+          </p>
+          <p>
+            <b>INT:</b> {charStats.intelligence}
+          </p>
+          <p>
+            <b>WIS:</b> {charStats.wisdom}
+          </p>
+          <p>
+            <b>CHA:</b> {charStats.charisma}
+          </p>
+        </div>
       </div>
-      <div>
+
+      <div className="hpBars">
+        <div className="mainHealthBar">
+          <div>Hitpoints:</div>
+          <progress
+            className="progress is-danger"
+            value={charData.currentHp}
+            max={charStats.maxHP}
+          ></progress>
+          {/* <div>
+            ( {charData.currentHp} / {charStats.maxHP} )
+          </div> */}
+        </div>
+        <div className="tempHealthBar">
+          <div>Temp HP:</div>
+          <progress
+            className="progress is-info"
+            value={charData.tempHp}
+            max="10"
+          ></progress>
+          {/* <div>( {charData.tempHp} )</div> */}
+        </div>
+      </div>
+
+      <div className="inputInterface">
         <Damage onDealDamage={handleDamage}></Damage>
-      </div>
-      <div>
         <Heal onHeal={handleHeal}></Heal>
-      </div>
-      <div>
         <TemporaryHitpoints onTempHp={handleTempHp}></TemporaryHitpoints>
       </div>
     </>

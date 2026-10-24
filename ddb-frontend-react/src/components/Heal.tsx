@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { BaseSyntheticEvent } from "react";
+import styles from "./Heal.module.scss";
 
 interface HealProps {
   onHeal: (healing: number) => void;
@@ -23,15 +24,21 @@ export default function Heal({ onHeal }: HealProps) {
   const [healValue, setHealValue] = useState(0);
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          value={healValue}
-          onChange={(e) => setHealValue(parseInt(e.target.value))}
-        ></input>
-        <button>Apply Heal</button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <div className={styles.heal}>
+        <div>
+          <input
+            className={styles.healInput}
+            type="number"
+            min="0"
+            value={healValue}
+            onChange={(e) => setHealValue(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <button>Apply Heal</button>
+        </div>
+      </div>
+    </form>
   );
 }

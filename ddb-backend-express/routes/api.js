@@ -24,7 +24,6 @@ router.get("/getCharacter", async (req, res) => {
   let storedCharData = JSON.parse(
     await fs.readFile(storedCharacterPath, "utf8"),
   );
-  console.log(storedCharData);
   res.status(200).json(storedCharData);
 });
 

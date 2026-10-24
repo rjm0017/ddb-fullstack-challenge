@@ -6,6 +6,7 @@ import validDamageTypes from "./validDamageTypes.js";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// schema for storing character data for application usage/modification
 let characterData = {
   name: "",
   level: 0,

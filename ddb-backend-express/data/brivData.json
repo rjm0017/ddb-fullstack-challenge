@@ -1,1 +1,1 @@
-{"name":"Briv","level":5,"class":"fighter","maxHitPoints":25,"currentHitPoints":17,"tempHitPoints":0,"resistances":["slashing"],"immunities":["fire"],"stats":{"strength":15,"dexterity":12,"constitution":14,"intelligence":13,"wisdom":10,"charisma":8}}
+{"name":"Briv","level":5,"class":"fighter","maxHitPoints":25,"currentHitPoints":25,"tempHitPoints":2,"resistances":["slashing"],"immunities":["fire"],"stats":{"strength":15,"dexterity":12,"constitution":14,"intelligence":13,"wisdom":10,"charisma":8}}

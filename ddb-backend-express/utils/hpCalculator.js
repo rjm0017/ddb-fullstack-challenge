@@ -10,8 +10,6 @@ function damageCalculation(
 ) {
   // Check if damage type is valid, then check against resistances/immunities
   if (!validDamageTypes.includes(damageType)) {
-    // console.log("Invalid Damage Type");
-    // TODO: make this valid damage type error handling better
     return -1;
   } else if (resistances.includes(damageType)) {
     damage = Math.floor(damage / 2);

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { BaseSyntheticEvent } from "react";
+import styles from "./TemporaryHitpoints.module.scss";
 
 interface TemporaryHitpointsProps {
   onTempHp: (tempHp: number) => void;
@@ -25,15 +26,21 @@ export default function TemporaryHitpoints({
   const [tempHpValue, setTempHpValue] = useState(0);
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          value={tempHpValue}
-          onChange={(e) => setTempHpValue(parseInt(e.target.value))}
-        ></input>
-        <button>Apply Temp HP</button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <div className={styles.tempHp}>
+        <div>
+          <input
+            className={styles.tempHpInput}
+            type="number"
+            min="0"
+            value={tempHpValue}
+            onChange={(e) => setTempHpValue(parseInt(e.target.value))}
+          ></input>
+        </div>
+        <div>
+          <button>Apply Temp HP</button>
+        </div>
+      </div>
+    </form>
   );
 }

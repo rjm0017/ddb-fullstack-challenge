@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { BaseSyntheticEvent } from "react";
 import type { damageValuesObj } from "../utils/customTypes";
+import styles from "./Damage.module.scss";
 
 // valid damage types, used to populate the damage type dropdown options
 const damageTypes = [
@@ -43,27 +44,35 @@ export default function Damage({ onDealDamage }: DamageProps) {
   const [damageType, setDamageType] = useState(damageTypes[0].toLowerCase());
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          value={damageValue}
-          onChange={(e) => setDamageValue(parseInt(e.target.value))}
-        ></input>
+    <form onSubmit={handleSubmit}>
+      <div className={styles.damage}>
+        <div>
+          <input
+            className={styles.damageInput}
+            type="number"
+            min="0"
+            value={damageValue}
+            onChange={(e) => setDamageValue(parseInt(e.target.value))}
+          ></input>
+        </div>
 
-        <select
-          value={damageType}
-          onChange={(e) => setDamageType(e.target.value)}
-        >
-          {damageTypes.map((type) => (
-            <option key={type.toLowerCase()} value={type.toLowerCase()}>
-              {type}
-            </option>
-          ))}
-        </select>
+        <div>
+          <select
+            value={damageType}
+            onChange={(e) => setDamageType(e.target.value)}
+          >
+            {damageTypes.map((type) => (
+              <option key={type.toLowerCase()} value={type.toLowerCase()}>
+                {type}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <button>Deal Damage</button>
-      </form>
-    </>
+        <div>
+          <button>Take Damage</button>
+        </div>
+      </div>
+    </form>
   );
 }
