@@ -8,6 +8,8 @@ The application also includes a ReactJS + TypeScript frontend to display your ch
 
 ## Installation and Setup
 
+Either clone the repository locally, or download and unzip the files from the repository directly, then follow the setup steps for each half of the project below:
+
 ### Backend
 
 - From `ddb-backend-express` directory, run the following:
