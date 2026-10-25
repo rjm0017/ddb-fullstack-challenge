@@ -113,7 +113,7 @@ test("POST /damage rejects an invalid damage type without changing state", async
   const response = await post("damage", { damage: 5, type: "invalid" });
 
   assert.equal(response.status, 400);
-  assert.deepEqual(await response.json(), { message: "Damage Type Invalid" });
+  assert.deepEqual(await response.json(), { message: "Invalid damage type" });
   assert.deepEqual(
     JSON.parse(await fs.readFile(storedCharacterPath, "utf8")),
     initialCharacter,

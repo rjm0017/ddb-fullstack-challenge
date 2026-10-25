@@ -14,7 +14,7 @@ describe("Heal", () => {
     fireEvent.change(screen.getByRole("spinbutton"), {
       target: { value: "6" },
     });
-    fireEvent.click(screen.getByRole("button", { name: "Apply Heal" }));
+    fireEvent.click(screen.getByRole("button", { name: "Apply Healing" }));
 
     expect(fetchMock).toHaveBeenCalledWith("http://localhost:8080/api/heal", {
       method: "POST",
